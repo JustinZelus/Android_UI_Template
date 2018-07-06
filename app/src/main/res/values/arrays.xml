@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Table offline ig edit data , Advanced Ignition Setting-->
+    <array name="table_offline_ig_edit_data">
+        <!--row0-->
+        <item>0</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>60</item>
+        <item>80</item>
+        <item>100</item>
+        <!--row1-->
+        <item>10</item>
+        <item>3.5</item>
+        <item>11.5</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <!--row2-->
+        <item>20</item>
+        <item>3.5</item>
+        <item>3.5</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <!--row3-->
+        <item>30</item>
+        <item>-3.5</item>
+        <item>-3.5</item>
+        <item>-3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <!--row4-->
+        <item>40</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <!--row5-->
+        <item>60</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <!--row6-->
+        <item>80</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>4.5</item>
+        <item>3.0</item>
+    </array>
+
+    <!--Table offline edit data , Advanced Ignition Setting-->
+    <array name="table_offline_edit_data">
+        <!--row0-->
+        <item>0</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>60</item>
+        <item>80</item>
+        <item>100</item>
+        <!--row1-->
+        <item>10</item>
+        <item>2</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <!--row2-->
+        <item>20</item>
+        <item>41</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <!--row3-->
+        <item>30</item>
+        <item>2</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>10</item>
+        <item>0</item>
+        <!--row4-->
+        <item>40</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>10</item>
+        <item>0</item>
+        <!--row5-->
+        <item>60</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>5</item>
+        <item>5</item>
+        <item>0</item>
+        <!--row6-->
+        <item>80</item>
+        <item>0</item>
+        <item>0</item>
+        <item>10</item>
+        <item>2</item>
+        <item>3</item>
+        <item>0</item>
+    </array>
+
+    <!-- online 頁面資料夾名稱 -->
+    <array name="online_directory_name">
+        <item>\'13~\'15 \t\tKX450F</item>
+        <item>\'16 \t\tKX450F</item>
+    </array>
+    <!-- offline 頁面資料夾名稱 -->
+    <array name="offline_directory_name">
+        <item>\'09~\'11 \t\tKX450F</item>
+        <item>\'11~\'12 \t\tKX250F</item>
+        <item>\'12 \t\tKX450F</item>
+        <item>\'13 \t\tKX250F</item>
+        <item>\'13~\'15 \t\tKX450F</item>
+        <item>\'14 \t\tKX250F</item>
+        <item>\'16 \t\tKX450F</item>
+        <!--<item>test1</item>-->
+        <!--<item>test2</item>-->
+        <!--<item>test3</item>-->
+        <!--<item>test4</item>-->
+        <!--<item>test5</item>-->
+    </array>
+
+    <!-- sample 頁面資料夾名稱 -->
+    <array name="sample_directory_name_offline">
+        <item>Advanced Ignition Setting</item>
+        <item>Beginner</item>
+        <item>Hard Riding Surface</item>
+        <item>Leaner Fuel Setting</item>
+        <item>Retarded Ignition Setting</item>
+        <item>Richer Fuel Setting</item>
+        <item>Soft Riding Surface</item>
+    </array>
+
+    <array name="sample_directory_name_online">
+        <item>Advanced Ignition Setting</item>
+        <item>Beginner</item>
+        <item>Hard Riding Surface</item>
+        <item>Leaner Fuel Setting</item>
+        <item>Retarded Ignition Setting</item>
+        <item>Richer Fuel Setting</item>
+        <item>Soft Riding Surface</item>
+    </array>
+
+    <!-- user library 頁面資料夾名稱 -->
+    <array name="user_library_directory_name">
+        <item>Default</item>
+        <item>Advanced Ignition Setting</item>
+        <item>Hard Riding Surface</item>
+        <item>Richer Fuel Setting</item>
+    </array>
+
+    <array name="map_adjustment">
+        <item>EDIT DATA</item>
+        <item>IG EDIT DATA</item>
+        <item>MAP Point Setting</item>
+        <item>Memo Information</item>
+    </array>
+
+    <array name="menu_3_button_Titles">
+        <item>OFF Line</item>
+        <item>ON Line</item>
+        <item>Setup</item>
+    </array>
+
+    <array name="online_menu_3_button_Titles">
+        <item>Map Adjustment</item>
+        <item>Data Monitor</item>
+        <item>Reset ECUp</item>
+    </array>
+
+    <array name="menu_2_button_Titles">
+        <item>Sample</item>
+        <item>User Library</item>
+    </array>
+
+    <array name="menu_3_button_Colors">
+        <item>#757575</item>
+        <item>#2196F3</item>
+        <item>#BBDEFB</item>
+    </array>
+
+    <array name="directoryColors">
+        <item>@color/colorPrimaryLight</item>
+        <item>@color/colorDivider</item>
+    </array>
+
+    <integer-array name="directoryRipples">
+        <item>@drawable/ripple_directory_0</item>
+        <item>@drawable/ripple_directory_1</item>
+    </integer-array>
+
+    <integer-array name="menu_3_button_Ripples">
+        <item>@drawable/ripple_offline</item>
+        <item>@drawable/ripple_online</item>
+        <item>@drawable/ripple_setup</item>
+    </integer-array>
+
+
+    <integer-array name="menu_2_button_Ripples">
+        <item>@drawable/ripple_sample</item>
+        <item>@drawable/ripple_user_library</item>
+    </integer-array>
+
+    <integer-array name="map_adjustment_Ripples">
+        <item>@drawable/ripple_map_adjustment_0</item>
+        <item>@drawable/ripple_map_adjustment_1</item>
+        <item>@drawable/ripple_map_adjustment_2</item>
+        <item>@drawable/ripple_map_adjustment_3</item>
+    </integer-array>
+</resources>

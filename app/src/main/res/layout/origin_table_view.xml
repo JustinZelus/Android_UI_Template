@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frame_layout"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    >
+    <TextView
+        android:id="@+id/tv_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:gravity="center"
+        android:visibility="visible"
+        android:text=""
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        android:textSize="17sp"
+        android:background="@drawable/rectangle"
+        android:textColor="#000000" />
+</FrameLayout>
+
