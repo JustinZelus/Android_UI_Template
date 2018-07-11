@@ -20,9 +20,7 @@ import java.util.List;
 
 import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
-import kawasaki.icm.com.tw.kawasaki_ui.adapter.CellSettingAdapter;
 import kawasaki.icm.com.tw.kawasaki_ui.adapter.FieldSettingAdapter;
-import kawasaki.icm.com.tw.kawasaki_ui.adapter.TableAdapter;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.TableSettingPattern;
 import kawasaki.icm.com.tw.kawasaki_ui.listeners.IRecyclerViewClickListener;
@@ -34,7 +32,7 @@ import kawasaki.icm.com.tw.kawasaki_ui.model.Table;
  */
 
 
-public class Table_Offline_Map_Point_Setting_Fragment extends Fragment implements IRecyclerViewClickListener {
+public class Z_DeprecatedTable_Offline_Map_Point_Setting_Fragment extends Fragment implements IRecyclerViewClickListener {
     RecyclerView mRecyclerView;
     FieldSettingAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
@@ -126,7 +124,7 @@ public class Table_Offline_Map_Point_Setting_Fragment extends Fragment implement
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = LayoutInflater.from(getContext()).inflate(R.layout.offline_fragment_table_2,container,false);
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_ig_offline,container,false);
         mRecyclerView =  v.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new GridLayoutManager(context,7);

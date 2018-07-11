@@ -2,12 +2,9 @@ package kawasaki.icm.com.tw.kawasaki_ui.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,11 +17,9 @@ import java.util.List;
 import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
 import kawasaki.icm.com.tw.kawasaki_ui.adapter.DataMonitorAdapter;
-import kawasaki.icm.com.tw.kawasaki_ui.adapter.DirectoryAdapter;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 import kawasaki.icm.com.tw.kawasaki_ui.model.DataMonitor;
-import kawasaki.icm.com.tw.kawasaki_ui.model.Directory;
 
 /**
  * Created by icm_mobile on 2018/7/11.
@@ -72,7 +67,7 @@ public class DataMonitorFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_datamonitor,container,false);
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_data_monitor,container,false);
         mRecyclerView = v.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false); //版面設置為縱向

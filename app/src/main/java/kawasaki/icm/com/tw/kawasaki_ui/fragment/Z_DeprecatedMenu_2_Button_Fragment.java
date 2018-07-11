@@ -15,14 +15,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
-import kawasaki.icm.com.tw.kawasaki_ui.adapter.MenuAdapter;
+import kawasaki.icm.com.tw.kawasaki_ui.adapter.Z_deprecatedMenuAdapter;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
 import kawasaki.icm.com.tw.kawasaki_ui.listeners.IRecyclerViewClickListener;
 import kawasaki.icm.com.tw.kawasaki_ui.model.Menu;
@@ -35,7 +34,7 @@ import kawasaki.icm.com.tw.kawasaki_ui.model.Menu;
  * 按鈕的數量參考至values/arrays.xml中的menuTitles數量
  */
 
-public class Menu_3_Button_Fragment extends Fragment implements IRecyclerViewClickListener {
+public class Z_DeprecatedMenu_2_Button_Fragment extends Fragment implements IRecyclerViewClickListener {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -44,8 +43,8 @@ public class Menu_3_Button_Fragment extends Fragment implements IRecyclerViewCli
     List<Menu> mData = new ArrayList<>();
     int myPage = -1;
 
-    public static Menu_3_Button_Fragment newInstance(int myPage){
-        Menu_3_Button_Fragment f = new Menu_3_Button_Fragment();
+    public static Z_DeprecatedMenu_2_Button_Fragment newInstance(int myPage){
+        Z_DeprecatedMenu_2_Button_Fragment f = new Z_DeprecatedMenu_2_Button_Fragment();
         Bundle bundle = new Bundle();
         bundle.putInt("PAGE",myPage);
         f.setArguments(bundle);
@@ -55,24 +54,9 @@ public class Menu_3_Button_Fragment extends Fragment implements IRecyclerViewCli
     @SuppressLint("ResourceType")
     public void initModel() {
         myPage = getArguments().getInt("PAGE");
-
-        /** menu頁面預設3顆按鈕，按鈕的標題及顏色可在xml裡更改 */
         Resources resources = context.getResources();
-        String[] titles = null;
-
-        switch (myPage) {
-            case -1:
-                titles = resources.getStringArray(R.array.menu_3_button_Titles);
-                break;
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-        }
-
-        for(int i = 0; i < 3; i++) {
+        String[] titles = resources.getStringArray(R.array.menu_2_button_Titles);
+        for(int i = 0; i < titles.length; i++) {
             mData.add(new Menu( titles[i] , resources.getDrawable(R.drawable.ripple_rectangle_rounded)));
         }
     }
@@ -81,24 +65,25 @@ public class Menu_3_Button_Fragment extends Fragment implements IRecyclerViewCli
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
+
         initModel();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_menu,container,false);
+        View v = inflater.inflate(R.layout.z_deprecatedfragment_menu,container,false);
 
         mRecyclerView =  v.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false); //版面設置為橫向
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new MenuAdapter(mData, (MainActivity) getContext(),this);
+        mAdapter = new Z_deprecatedMenuAdapter(mData,(MainActivity) getContext(),this);
         mRecyclerView.setAdapter(mAdapter);
 
         /** action bar 標題更新 */
         if(AppAttribute.IS_UPDATE_TOOLBAR_TITLE)
-            MainActivity.Instance.updateToolbar(Pages.MENU_3_BUTTON);
+            MainActivity.Instance.updateToolbar(Pages.MENU_2_BUTTON);
 
         return v;
     }
@@ -117,38 +102,20 @@ public class Menu_3_Button_Fragment extends Fragment implements IRecyclerViewCli
     @Override
     public void recyclerViewItemClicked(View v, int position) {
         Log.d("recyclerViewItemClicked","position - " + position+ " , " + ((TextView)v).getText() + "\r\n");
+
         Fragment des = null;
         switch(position) {
             case 0:
-                des = OFFLine_Fragment.newInstance(Pages.OFF_LINE);
+                des = SampleFragment.newInstance(myPage);
                 break;
             case 1:
-                des = ONLine_Fragment.newInstance();
-                break;
-            case 2:
+                des = UserLibraryFragment.newInstance(myPage);
                 break;
         }
 
         if(des != null)
             MainActivity.Instance.switchFragment(this,des);
-
-//        if(des != null) {
-//            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            fragmentTransaction.setCustomAnimations(R.anim.fade_in,R.anim.fade_out); //必須用自定義動畫才有效果，原因https://www.e-learn.cn/content/wangluowenzhang/89903
-//            if(!des.isAdded()) {
-//                fragmentTransaction.add(R.id.fragment_container,des);
-//            }
-//            else
-//               fragmentTransaction.replace(R.id.fragment_container, des);
-//
-//            if(needToAddBackStack)
-//                fragmentTransaction.addToBackStack(null);
-//            fragmentTransaction.commit();
-//        }
-
-
     }
 
-    boolean needToAddBackStack = true;
+
 }

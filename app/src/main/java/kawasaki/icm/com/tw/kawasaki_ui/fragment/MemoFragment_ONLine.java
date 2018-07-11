@@ -27,7 +27,7 @@ import kawasaki.icm.com.tw.kawasaki_ui.model.KawasakiList;
  * Created by icm_mobile on 2018/6/28.
  */
 
-public class Table_Offline_Memo_Information_Fragment extends Fragment implements IRecyclerViewClickListener {
+public class MemoFragment_ONLine extends Fragment implements IRecyclerViewClickListener {
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
@@ -84,7 +84,7 @@ public class Table_Offline_Memo_Information_Fragment extends Fragment implements
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = LayoutInflater.from(getContext()).inflate(R.layout.offline_fragment_memo,container,false);
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_memo_online,container,false);
 //        mRecyclerView =  v.findViewById(R.id.my_recycler_view);
 //
 //        mRecyclerView.setHasFixedSize(true);

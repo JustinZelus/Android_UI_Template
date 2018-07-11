@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
-import kawasaki.icm.com.tw.kawasaki_ui.fragment.Menu_3_Button_Fragment;
 import kawasaki.icm.com.tw.kawasaki_ui.fragment.OpeningFragment;
 
 

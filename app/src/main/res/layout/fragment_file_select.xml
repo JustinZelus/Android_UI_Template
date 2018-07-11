@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        app:layout_constraintVertical_chainStyle="packed"
+        android:id="@+id/btn_sample"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ripple_rectangle_rounded"
+        android:gravity="center"
+        android:text="Sample"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.3"
+        />
+
+    <Button
+        android:layout_marginTop="24dp"
+        android:id="@+id/btn_user_library"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ripple_rectangle_rounded"
+        android:gravity="center"
+        android:text="User Library"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_setup"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sample"
+        app:layout_constraintStart_toStartOf="@+id/btn_sample"
+        />
+
+   
+</android.support.constraint.ConstraintLayout>

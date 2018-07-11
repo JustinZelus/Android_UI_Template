@@ -20,8 +20,7 @@ import java.util.List;
 
 import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
-import kawasaki.icm.com.tw.kawasaki_ui.adapter.CellSettingAdapter;
-import kawasaki.icm.com.tw.kawasaki_ui.adapter.TableAdapter;
+import kawasaki.icm.com.tw.kawasaki_ui.adapter.FieldSettingAdapter;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.TableSettingPattern;
 import kawasaki.icm.com.tw.kawasaki_ui.listeners.IRecyclerViewClickListener;
@@ -32,20 +31,21 @@ import kawasaki.icm.com.tw.kawasaki_ui.model.Table;
  * Created by icm_mobile on 2018/6/28.
  */
 
-public class Table_Offline_IG_Edit_Data_Fragment extends Fragment implements IRecyclerViewClickListener {
+
+public class MappingValueFragment_ONLine extends Fragment implements IRecyclerViewClickListener {
     RecyclerView mRecyclerView;
-    CellSettingAdapter mAdapter;
+    FieldSettingAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
     Context context;
     List<Table> mData = new ArrayList<>();
     TableSettingPattern pattern;
 
-    float text;
+    int text;
     TextView tvFocus = null;
     Button btnUp;
     Button btnDown;
-    float max = 15.0f;
-    float min = -15.0f;
+    int max = 100;
+    int min = 0;
 
 
     @SuppressLint("ResourceType")
@@ -115,7 +115,7 @@ public class Table_Offline_IG_Edit_Data_Fragment extends Fragment implements IRe
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
-        pattern = TableSettingPattern.SET_CELL;
+        pattern = TableSettingPattern.SET_FIELD;
         initModel();
 
     }
@@ -124,12 +124,13 @@ public class Table_Offline_IG_Edit_Data_Fragment extends Fragment implements IRe
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = LayoutInflater.from(getContext()).inflate(R.layout.offline_fragment_table_2,container,false);
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_mapping_value_online,container,false);
         mRecyclerView =  v.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new GridLayoutManager(context,7);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new CellSettingAdapter(mData , context ,this);
+//        mAdapter = new TableAdapter(mData , getContext() ,this, pattern);
+        mAdapter = new FieldSettingAdapter(mData,context,this);
         mAdapter.setFirstCellInvisible(context.getResources().getDrawable(R.drawable.test),true);
         mRecyclerView.setAdapter(mAdapter);
 
@@ -161,7 +162,7 @@ public class Table_Offline_IG_Edit_Data_Fragment extends Fragment implements IRe
     @Override
     public void recyclerViewItemClicked(View v, int position) {
         tvFocus = (TextView)v;
-        text = Float.parseFloat(tvFocus.getText().toString());
+        text = Integer.parseInt(tvFocus.getText().toString());
     }
 
     View.OnClickListener btn_adjust_listener = new View.OnClickListener() {
@@ -171,18 +172,18 @@ public class Table_Offline_IG_Edit_Data_Fragment extends Fragment implements IRe
             String tag = v.getTag().toString();
             switch (tag) {
                 case "btnUp":
-                    float val = text += 0.5f;
+                    int val = text += 5;
                     tvFocus.setText("" + constraintNumber(val));
                     break;
                 case "btnDown" :
-                    float _val = text -= 0.5f;
+                    int _val = text -= 5;
                     tvFocus.setText("" + constraintNumber(_val));
                     break;
             }
         }
     };
 
-    private float constraintNumber(float val) {
+    private int constraintNumber(int val) {
         if(val > max) {
             text = max;
         }

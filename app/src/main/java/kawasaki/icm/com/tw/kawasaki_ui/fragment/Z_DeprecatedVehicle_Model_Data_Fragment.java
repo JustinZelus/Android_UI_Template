@@ -19,10 +19,10 @@ import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
  * Created by icm_mobile on 2018/7/5.
  */
 
-public class Vehicle_Model_Data_Fragment extends Fragment {
+public class Z_DeprecatedVehicle_Model_Data_Fragment extends Fragment {
     Context context;
     LinearLayout linearLayout;
-    Vehicle_Model_Data_Fragment Instance;
+    Z_DeprecatedVehicle_Model_Data_Fragment Instance;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +33,7 @@ public class Vehicle_Model_Data_Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = LayoutInflater.from(getContext()).inflate(R.layout.online_fragment_vehicle_model_data,container,false);
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_vehicle_info,container,false);
         linearLayout = v.findViewById(R.id.linear_layout);
         linearLayout.setOnClickListener(listener);
 
@@ -60,7 +60,7 @@ public class Vehicle_Model_Data_Fragment extends Fragment {
         @Override
         public void onClick(View v) {
             Log.d("Vehicle_Fragment"," clicked !");
-            Fragment des = new ONLine_Function_Select_Fragment();
+            Fragment des = new FunctionSelectFragment();
             if(des != null)
                 MainActivity.Instance.switchFragment(Instance,des);
         }

@@ -36,7 +36,7 @@ import kawasaki.icm.com.tw.kawasaki_ui.model.Directory;
  * Created by icm_mobile on 2018/6/22.
  */
 
-public class User_Library_Fragment extends Fragment implements IRecyclerViewClickListener {
+public class UserLibraryFragment extends Fragment implements IRecyclerViewClickListener {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -46,8 +46,8 @@ public class User_Library_Fragment extends Fragment implements IRecyclerViewClic
     private boolean isAddItemDivider = true;
     int myPage = -1;
 
-    public static User_Library_Fragment newInstance(int page){
-        User_Library_Fragment f = new User_Library_Fragment();
+    public static UserLibraryFragment newInstance(int page){
+        UserLibraryFragment f = new UserLibraryFragment();
         Bundle bundle = new Bundle();
         bundle.putInt("PAGE",page);
         f.setArguments(bundle);
@@ -76,7 +76,7 @@ public class User_Library_Fragment extends Fragment implements IRecyclerViewClic
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_directory,container,false);
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_user_library,container,false);
         mRecyclerView =  v.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false); //版面設置為縱向
@@ -120,7 +120,7 @@ public class User_Library_Fragment extends Fragment implements IRecyclerViewClic
 
     @Override
     public void recyclerViewItemClicked(View v, int position) {
-        Fragment des = Map_Adjustment_Fragment.newInstance(myPage);
+        Fragment des = MapAdjustFragment.newInstance(myPage);
         if(des != null)
             MainActivity.Instance.switchFragment(this,des);
     }

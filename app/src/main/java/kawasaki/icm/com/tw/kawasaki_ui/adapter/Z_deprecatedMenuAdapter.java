@@ -24,7 +24,7 @@ import kawasaki.icm.com.tw.kawasaki_ui.model.Menu;
  * Created by icm_mobile on 2018/6/22.
  */
 
-public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
+public class Z_deprecatedMenuAdapter extends RecyclerView.Adapter<Z_deprecatedMenuAdapter.ViewHolder> {
 
     int width = 0;
     int height = 0;
@@ -59,7 +59,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
 
 
-    public MenuAdapter(List<Menu> mData, MainActivity activity, IRecyclerViewClickListener mRecyclerViewClickListener) {
+    public Z_deprecatedMenuAdapter(List<Menu> mData, MainActivity activity, IRecyclerViewClickListener mRecyclerViewClickListener) {
         this.mData = mData;
         this.context = activity;
         this.mRecyclerViewClickListener = mRecyclerViewClickListener;

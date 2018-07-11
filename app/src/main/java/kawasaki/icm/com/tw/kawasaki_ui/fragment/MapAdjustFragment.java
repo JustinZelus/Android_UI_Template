@@ -26,20 +26,20 @@ import kawasaki.icm.com.tw.kawasaki_ui.model.Menu;
  * Created by icm_mobile on 2018/6/27.
  */
 
-public class Map_Adjustment_Fragment extends Fragment{
+public class MapAdjustFragment extends Fragment{
     List<Menu> mData = new ArrayList<>();
-    Map_Adjustment_Fragment Instance;
+    MapAdjustFragment Instance;
     Context context;
     ImageButton btnFI;
     ImageButton btnIG;
     ImageButton btnMappingValue;
     ImageButton btnMemo;
-    int myPage = -1;
+    int toPage = -1;
     /* 按下按鈕有波紋效果(圖片需透明)*/
     boolean isAddRipple = false;
 
-    public static Map_Adjustment_Fragment newInstance(int page){
-        Map_Adjustment_Fragment f = new Map_Adjustment_Fragment();
+    public static MapAdjustFragment newInstance(int page){
+        MapAdjustFragment f = new MapAdjustFragment();
         Bundle bundle = new Bundle();
         bundle.putInt("PAGE",page);
         f.setArguments(bundle);
@@ -48,7 +48,7 @@ public class Map_Adjustment_Fragment extends Fragment{
 
     @SuppressLint("ResourceType")
     public void initModel() {
-        myPage = getArguments().getInt("PAGE");
+        toPage = getArguments().getInt("PAGE");
         /** menu頁面預設3顆按鈕，按鈕的標題及顏色可在xml裡更改 */
         Resources resources = context.getResources();
         String[] titles = resources.getStringArray(R.array.map_adjustment);
@@ -117,18 +117,19 @@ public class Map_Adjustment_Fragment extends Fragment{
             String tag = btn.getTag().toString();
             Fragment des = null;
 
+            //TODO 需判斷要走offline 還是 online
             switch (tag) {
                 case "f1":
-                    des = new Table_Offline_Edit_Data_Fragment();
+                    des = (toPage == Pages.OFF_LINE) ? new FIFragment_OFFLine() : new FIFragment_ONLine();
                     break;
                 case "f2":
-                    des = new Table_Offline_IG_Edit_Data_Fragment();
+                    des = (toPage == Pages.OFF_LINE) ? new IGFragment_OFFLine() : new IGFragment_ONLine();
                     break;
                 case "f3":
-                    des = new Table_Offline_Map_Point_Setting_Fragment();
+                    des = (toPage == Pages.OFF_LINE) ? new MappingValueFragment_OFFLine() : new MappingValueFragment_ONLine();
                     break;
                 case "f4":
-                    des = new Table_Offline_Memo_Information_Fragment();
+                    des = (toPage == Pages.OFF_LINE) ? new MemoFragment_OFFLine() : new MemoFragment_ONLine();
                     break;
                 default:
                     break;

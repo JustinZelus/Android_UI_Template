@@ -63,7 +63,7 @@ public class DirectoryAdapter extends RecyclerView.Adapter<DirectoryAdapter.View
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v =  LayoutInflater.from(parent.getContext()).inflate(R.layout.directory_text_view,parent,false);
+        View v =  LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_directory,parent,false);
         ViewHolder viewHolder = new ViewHolder(v);
 
         if(cell_Height == 0) {

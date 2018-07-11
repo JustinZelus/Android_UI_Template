@@ -10,11 +10,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,31 +32,33 @@ import kawasaki.icm.com.tw.kawasaki_ui.model.Directory;
  * Created by icm_mobile on 2018/6/22.
  */
 
-public class ONLine_Fragment extends Fragment implements IRecyclerViewClickListener {
+public class SampleFragment extends Fragment implements IRecyclerViewClickListener {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
-//    OffLine myDataset;
     Context context;
-
+    private boolean isAddItemDivider = true;
     List<Directory> mData = new ArrayList<>();
+    int myPage = -1;
 
-    public static ONLine_Fragment newInstance(){
-        ONLine_Fragment f = new ONLine_Fragment();
+    public static SampleFragment newInstance(int page){
+        SampleFragment f = new SampleFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("PAGE",page);
+        f.setArguments(bundle);
         return f;
     }
 
-    /*** 退回上一步，會pop掉當前的fragment。
-     * data若有做刪除等動作，data庫也必須做更新。下次拿到的data才會是正確的 */
     @SuppressLint("ResourceType")
     public void initModel() {
+        myPage = getArguments().getInt("PAGE");
         Resources resources = context.getResources();
-        String[] titles = resources.getStringArray(R.array.online_directory_name);
         TypedArray backgrounds = resources.obtainTypedArray(R.array.directoryRipples);
-
+        String[] titles = null;
+        titles = resources.getStringArray(R.array.sample_directory_name_offline);
         for(int i = 0; i < titles.length; i++) {
-            mData.add(new Directory( titles[i] , resources.getDrawable(R.drawable.ripple_directory_0,context.getTheme())));
+            mData.add(new Directory( titles[i] , resources.getDrawable(R.drawable.ripple_directory_0)));
         }
     }
 
@@ -64,7 +66,6 @@ public class ONLine_Fragment extends Fragment implements IRecyclerViewClickListe
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
-
         initModel();
 
     }
@@ -72,34 +73,19 @@ public class ONLine_Fragment extends Fragment implements IRecyclerViewClickListe
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_directory,container,false);
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_model_year_offline,container,false);
         mRecyclerView =  v.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false); //版面設置為縱向
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(context,DividerItemDecoration.VERTICAL));
-        mAdapter = new DirectoryAdapter(mData , (MainActivity)getContext() ,this);
+        mAdapter = new DirectoryAdapter(mData,(MainActivity)getContext(),this);
         mRecyclerView.setAdapter(mAdapter);
+        if(isAddItemDivider)
+            mRecyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
 
         /**action bar 標題更新*/
         if(AppAttribute.IS_UPDATE_TOOLBAR_TITLE)
-            MainActivity.Instance.updateToolbar(Pages.DIRECTORY_KXF);
-
-
-
-//        ItemTouchHelper.SimpleCallback itemTouchCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
-//            @Override
-//            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-//
-//                return false;
-//            }
-//
-//            @Override
-//            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-//                ((DirectoryAdapter) mAdapter).removeItem(viewHolder.getAdapterPosition());
-//
-//            }
-//        };
+            MainActivity.Instance.updateToolbar(Pages.DIRECTORY_SAMPLE);
         return v;
     }
 
@@ -115,10 +101,8 @@ public class ONLine_Fragment extends Fragment implements IRecyclerViewClickListe
 
     @Override
     public void recyclerViewItemClicked(View v, int position) {
-        Log.d("recyclerViewItemClicked","position - " + position+ " , " + ((TextView)v).getText() + "\r\n");
-        Fragment des = new Vehicle_Model_Data_Fragment();
+        Fragment des = MapAdjustFragment.newInstance(myPage);
         if(des != null)
             MainActivity.Instance.switchFragment(this,des);
-
     }
 }

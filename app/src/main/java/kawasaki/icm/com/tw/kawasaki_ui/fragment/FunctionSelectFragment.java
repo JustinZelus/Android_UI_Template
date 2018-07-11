@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.List;
 import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
-import kawasaki.icm.com.tw.kawasaki_ui.adapter.MenuAdapter;
+import kawasaki.icm.com.tw.kawasaki_ui.adapter.Z_deprecatedMenuAdapter;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
 import kawasaki.icm.com.tw.kawasaki_ui.listeners.IRecyclerViewClickListener;
 import kawasaki.icm.com.tw.kawasaki_ui.model.Menu;
@@ -33,27 +34,28 @@ import kawasaki.icm.com.tw.kawasaki_ui.model.Menu;
  * 按鈕的數量參考至values/arrays.xml中的menuTitles數量
  */
 
-public class ONLine_Function_Select_Fragment extends Fragment implements IRecyclerViewClickListener {
+public class FunctionSelectFragment extends Fragment {
 
-    RecyclerView mRecyclerView;
-    RecyclerView.Adapter mAdapter;
-    RecyclerView.LayoutManager mLayoutManager;
     Context context;
-    List<Menu> mData = new ArrayList<>();
+    Button btnMapAdjustment;
+    Button btnDatamonitor;
+    Button btnResetECU;
+    FunctionSelectFragment Instance;
+
+    public static FunctionSelectFragment newInstance(){
+        FunctionSelectFragment f = new FunctionSelectFragment();
+        return f;
+    }
 
     @SuppressLint("ResourceType")
     public void initModel() {
-        /** menu頁面預設3顆按鈕，按鈕的標題及顏色可在xml裡更改 */
-        Resources resources = context.getResources();
-        String[] titles = resources.getStringArray(R.array.online_menu_3_button_Titles);
-        for(int i = 0; i < 3; i++) {
-            mData.add(new Menu( titles[i] , resources.getDrawable(R.drawable.ripple_rectangle_rounded)));
-        }
+
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Instance = this;
         context = getContext();
         initModel();
     }
@@ -61,14 +63,15 @@ public class ONLine_Function_Select_Fragment extends Fragment implements IRecycl
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.online_fragment_function_select,container,false);
+        View v = inflater.inflate(R.layout.fragment_function_select,container,false);
+        btnMapAdjustment = v.findViewById(R.id.btn_map_adjustment);
+        btnDatamonitor = v.findViewById(R.id.btn_data_monitor);
+        btnResetECU = v.findViewById(R.id.btn_rest_ecu);
 
-        mRecyclerView =  v.findViewById(R.id.my_recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false); //版面設置為橫向
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new MenuAdapter(mData, (MainActivity) getContext(),this);
-        mRecyclerView.setAdapter(mAdapter);
+        btnMapAdjustment.setOnClickListener(btn_click_listener);
+        btnDatamonitor.setOnClickListener(btn_click_listener);
+        btnResetECU.setOnClickListener(btn_click_listener);
+
 
         /** action bar 標題更新 */
         if(AppAttribute.IS_UPDATE_TOOLBAR_TITLE)
@@ -87,25 +90,24 @@ public class ONLine_Function_Select_Fragment extends Fragment implements IRecycl
         super.onDestroy();
     }
 
-    //Offline,Online,Setup 三顆按鈕的響應
-    @Override
-    public void recyclerViewItemClicked(View v, int position) {
-        Log.d("recyclerViewItemClicked","position - " + position+ " , " + ((TextView)v).getText() + "\r\n");
-        Fragment des = null;
-        switch(position) {
-            case 0:
-                des = Menu_2_Button_Fragment.newInstance(1);
-                break;
-            case 1:
+    View.OnClickListener btn_click_listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Fragment des = null;
+            if(v.equals(btnMapAdjustment)) {
+                des = FileSelectFragment.newInstance();
+            }
+            else if(v.equals(btnDatamonitor)) {
                 des = DataMonitorFragment.newInstance();
-                break;
-            case 2:
-                break;
+            }
+            else if(v.equals(btnResetECU)) {
+                des = ResetECUFragment.newInstance();
+            }
+
+            if(des != null)
+                MainActivity.Instance.switchFragment(Instance,des);
         }
+    };
 
-        if(des != null)
-            MainActivity.Instance.switchFragment(this,des);
-
-    }
 
 }

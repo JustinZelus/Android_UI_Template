@@ -4,48 +4,50 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.LinearLayout;
 
 import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
+import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 
 /**
  * Created by icm_mobile on 2018/7/11.
  */
 
-public class MainMenuFragment extends Fragment{
+public class VehicleInfoFragment extends Fragment {
     Context context;
-    Button btnOFFLine;
-    Button btnONLine;
-    Button btnSetup;
-    MainMenuFragment Instance;
+    LinearLayout linearLayout;
+    VehicleInfoFragment Instance;
 
-    public static MainMenuFragment newInstance(){
-        MainMenuFragment f = new MainMenuFragment();
+     static VehicleInfoFragment newInstance() {
+        VehicleInfoFragment f = new VehicleInfoFragment();
         return f;
     }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Instance = this;
         context = getContext();
+        Instance = this;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_main_menu,container,false);
-        btnOFFLine = v.findViewById(R.id.btn_offline);
-        btnONLine = v.findViewById(R.id.btn_online);
-        btnSetup = v.findViewById(R.id.btn_setup);
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_vehicle_info,container,false);
+        linearLayout = v.findViewById(R.id.linear_layout);
+        linearLayout.setOnClickListener(listener);
 
-        btnOFFLine.setOnClickListener(btn_click_listener);
-        btnONLine.setOnClickListener(btn_click_listener);
-        btnSetup.setOnClickListener(btn_click_listener);
+
+        /**action bar 標題更新*/
+        if(AppAttribute.IS_UPDATE_TOOLBAR_TITLE)
+            MainActivity.Instance.updateToolbar(Pages.DIRECTORY_KXF);
+
         return v;
     }
 
@@ -59,20 +61,12 @@ public class MainMenuFragment extends Fragment{
         super.onDestroy();
     }
 
-    View.OnClickListener btn_click_listener = new View.OnClickListener() {
+    /** 畫面點擊的響應，切至下一個頁面*/
+    View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Fragment des = null;
-            if(v.equals(btnOFFLine)) {
-                des = OFFLineModelYearFragment.newInstance(Pages.OFF_LINE);
-            }
-            else if(v.equals(btnONLine)) {
-                des = ONLineModelYearFragment.newInstance();
-            }
-            else if(v.equals(btnSetup)) {
-                des = SetupFragment.newInstance();
-            }
-
+            Log.d("Vehicle_Fragment"," clicked !");
+            Fragment des = new FunctionSelectFragment();
             if(des != null)
                 MainActivity.Instance.switchFragment(Instance,des);
         }
