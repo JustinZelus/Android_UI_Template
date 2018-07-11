@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        app:layout_constraintVertical_chainStyle="packed"
+        android:id="@+id/btn_datetime_setting"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rectangle_rounded_2"
+        android:gravity="center"
+        android:text="Date/Time Setting"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_deg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <Button
+        android:layout_marginTop="24dp"
+        android:id="@+id/btn_deg"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rectangle_rounded_2"
+        android:gravity="center"
+        android:text="deg C / deg F"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_system_information"
+        app:layout_constraintTop_toBottomOf="@+id/btn_datetime_setting"
+        app:layout_constraintStart_toStartOf="@+id/btn_datetime_setting"
+        />
+
+    <Button
+        android:layout_marginTop="24dp"
+        android:id="@+id/btn_system_information"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rectangle_rounded_2"
+        android:gravity="center"
+        android:text="System Information"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_deg"
+        app:layout_constraintStart_toStartOf="@+id/btn_datetime_setting"
+        />
+</android.support.constraint.ConstraintLayout>

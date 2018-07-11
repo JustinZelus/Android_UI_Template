@@ -94,9 +94,10 @@ public class ONLine_Function_Select_Fragment extends Fragment implements IRecycl
         Fragment des = null;
         switch(position) {
             case 0:
-                des = new Menu_2_Button_Fragment();
+                des = Menu_2_Button_Fragment.newInstance(1);
                 break;
             case 1:
+                des = DataMonitorFragment.newInstance();
                 break;
             case 2:
                 break;

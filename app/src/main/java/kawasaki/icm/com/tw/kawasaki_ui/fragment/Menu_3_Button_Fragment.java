@@ -123,7 +123,7 @@ public class Menu_3_Button_Fragment extends Fragment implements IRecyclerViewCli
                 des = OFFLine_Fragment.newInstance(Pages.OFF_LINE);
                 break;
             case 1:
-                des = new ONLine_Fragment();
+                des = ONLine_Fragment.newInstance();
                 break;
             case 2:
                 break;

@@ -10,6 +10,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -18,6 +20,7 @@ import java.util.List;
 
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 import kawasaki.icm.com.tw.kawasaki_ui.fragment.Menu_3_Button_Fragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragment.OpeningFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     boolean isAddToolbar = false;
     /** 是否在toolbar中加入menu */
     boolean isAddMenuToToolbar = false;
+    /** 是否加入抽屜*/
+    boolean isAddDrawer = false;
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -54,23 +59,46 @@ public class MainActivity extends AppCompatActivity {
             //        actionBar.setHomeAsUpIndicator(R.drawable.icon_hamburger);
         }
 
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        String dp = "";
+        switch(metrics.densityDpi){
+            case DisplayMetrics.DENSITY_LOW:
+                dp = "DENSITY_LOW";
+                break;
+            case DisplayMetrics.DENSITY_MEDIUM:
+                dp = "DENSITY_MEDIUM";
+                break;
+            case DisplayMetrics.DENSITY_HIGH:
+                dp = "DENSITY_HIGH";
+                break;
+            case DisplayMetrics.DENSITY_XHIGH:
+                dp = "DENSITY_XHIGH";
+                break;
+            case DisplayMetrics.DENSITY_XXHIGH:
+                dp = "DENSITY_XXHIGH";
+                break;
+            case DisplayMetrics.DENSITY_XXXHIGH:
+                dp = "DENSITY_XXXHIGH";
+                break;
 
+        }
+        Log.d("density qualifiers","" + dp);
 
+        if(isAddDrawer) {
+            mDrawerLayout = findViewById(R.id.drawer_layout);
+            navigationView = findViewById(R.id.nav_view);
+            navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    item.setChecked(true);
+                    mDrawerLayout.closeDrawers();
+                    return true;
+                }
+            });
+        }
 
-        mDrawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                item.setChecked(true);
-                mDrawerLayout.closeDrawers();
-                return true;
-            }
-        });
-
-
-
-        switchFragment(Menu_3_Button_Fragment.newInstance(-1));
+        switchFragment(OpeningFragment.newInstance());
 //        switchFragment(new Map_Adjustment_Fragment());
 
 

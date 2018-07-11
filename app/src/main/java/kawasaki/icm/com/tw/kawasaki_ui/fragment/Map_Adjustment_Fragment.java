@@ -30,11 +30,13 @@ public class Map_Adjustment_Fragment extends Fragment{
     List<Menu> mData = new ArrayList<>();
     Map_Adjustment_Fragment Instance;
     Context context;
-    ImageButton btn_f1_edit_data;
-    ImageButton btn_f2_ig_edit_data;
-    ImageButton btn_f3_map_point_setting;
-    ImageButton btn_f4_memo_information;
+    ImageButton btnFI;
+    ImageButton btnIG;
+    ImageButton btnMappingValue;
+    ImageButton btnMemo;
     int myPage = -1;
+    /* 按下按鈕有波紋效果(圖片需透明)*/
+    boolean isAddRipple = false;
 
     public static Map_Adjustment_Fragment newInstance(int page){
         Map_Adjustment_Fragment f = new Map_Adjustment_Fragment();
@@ -68,24 +70,26 @@ public class Map_Adjustment_Fragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.origin_fragment_map_adjustment,container,false);
+        View v = inflater.inflate(R.layout.origin_fragment_map_adjustment_fixed,container,false);
 
-        btn_f1_edit_data         = v.findViewById(R.id.btn_f1_edit_data);
-        btn_f2_ig_edit_data      = v.findViewById(R.id.btn_f2_ig_edit_data);
-        btn_f3_map_point_setting = v.findViewById(R.id.btn_f3_map_point_setting);
-        btn_f4_memo_information  = v.findViewById(R.id.btn_f4_memo_information);
-        btn_f1_edit_data.setOnClickListener(view_onClick_listener);
-        btn_f2_ig_edit_data.setOnClickListener(view_onClick_listener);
-        btn_f3_map_point_setting.setOnClickListener(view_onClick_listener);
-        btn_f4_memo_information.setOnClickListener(view_onClick_listener);
-        btn_f1_edit_data.setTag("f1");
-        btn_f2_ig_edit_data.setTag("f2");
-        btn_f3_map_point_setting.setTag("f3");
-        btn_f4_memo_information.setTag("f4");
-        btn_f1_edit_data.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryLight));
-        btn_f2_ig_edit_data.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryLight));
-        btn_f3_map_point_setting.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryLight));
-        btn_f4_memo_information.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryLight));
+        btnFI = v.findViewById(R.id.btn_FI);
+        btnIG = v.findViewById(R.id.btn_IG);
+        btnMappingValue = v.findViewById(R.id.btn_MappingValue);
+        btnMemo = v.findViewById(R.id.btn_Memo);
+        btnFI.setOnClickListener(view_onClick_listener);
+        btnIG.setOnClickListener(view_onClick_listener);
+        btnMappingValue.setOnClickListener(view_onClick_listener);
+        btnMemo.setOnClickListener(view_onClick_listener);
+        btnFI.setTag("f1");
+        btnIG.setTag("f2");
+        btnMappingValue.setTag("f3");
+        btnMemo.setTag("f4");
+        if(isAddRipple) {
+            btnFI.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryLight));
+            btnIG.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryLight));
+            btnMappingValue.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryLight));
+            btnMemo.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryLight));
+        }
 
 
 

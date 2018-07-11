@@ -42,6 +42,11 @@ public class ONLine_Fragment extends Fragment implements IRecyclerViewClickListe
 
     List<Directory> mData = new ArrayList<>();
 
+    public static ONLine_Fragment newInstance(){
+        ONLine_Fragment f = new ONLine_Fragment();
+        return f;
+    }
+
     /*** 退回上一步，會pop掉當前的fragment。
      * data若有做刪除等動作，data庫也必須做更新。下次拿到的data才會是正確的 */
     @SuppressLint("ResourceType")
