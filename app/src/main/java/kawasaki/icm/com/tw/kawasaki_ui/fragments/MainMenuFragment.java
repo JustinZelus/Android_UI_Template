@@ -1,4 +1,4 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,7 +12,9 @@ import android.widget.Button;
 import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
-import kawasaki.icm.com.tw.kawasaki_ui.fragment.online.ONLineModelYearFragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.offline.OFFLineModelYearFragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.online.ONLineModelYearFragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.setup.SetupFragment;
 
 /**
  * Created by icm_mobile on 2018/7/11.

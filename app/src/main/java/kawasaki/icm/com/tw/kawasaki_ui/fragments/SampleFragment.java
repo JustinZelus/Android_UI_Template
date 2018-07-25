@@ -1,4 +1,4 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -73,7 +73,7 @@ public class SampleFragment extends Fragment implements IRecyclerViewClickListen
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_model_year_offline,container,false);
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_sample,container,false);
         mRecyclerView =  v.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false); //版面設置為縱向

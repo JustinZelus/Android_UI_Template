@@ -105,7 +105,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder>{
         /*第0個設圖片*/
         if(position == 0) {
             Log.i("onBindViewHolder", "  0 hava to set backgroud");
-            holder.frameLayout.setBackground(context.getDrawable(R.drawable.test));
+            holder.frameLayout.setBackground(context.getDrawable(R.drawable.bg_cell_0));
             holder.textView.setVisibility(View.INVISIBLE);
         }
         else

@@ -3,6 +3,7 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="horizontal"
+    android:id="@+id/parent_linearlayout"
     >
     <FrameLayout
         android:layout_weight="0.6"

@@ -1,4 +1,4 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments.zdeprecated;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
-import kawasaki.icm.com.tw.kawasaki_ui.fragment.online.FunctionSelectFragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.online.FunctionSelectFragment;
 
 /**
  * Created by icm_mobile on 2018/7/5.

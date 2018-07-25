@@ -24,7 +24,7 @@
         android:orientation="horizontal"
         >
         <ImageButton
-            android:id="@+id/btn_f1_edit_data"
+            android:id="@+id/btn_FI"
             android:layout_weight="1"
             android:layout_marginRight="8dp"
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
 
         <ImageButton
             android:layout_marginLeft="8dp"
-            android:id="@+id/btn_f2_ig_edit_data"
+            android:id="@+id/btn_IG"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -50,7 +50,7 @@
         >
 
         <ImageButton
-            android:id="@+id/btn_f3_map_point_setting"
+            android:id="@+id/btn_MappingValue"
             android:layout_weight="1"
                 android:layout_marginRight="8dp"
             android:layout_width="match_parent"
@@ -58,7 +58,7 @@
 
         <ImageButton
             android:layout_marginLeft="8dp"
-            android:id="@+id/btn_f4_memo_information"
+            android:id="@+id/btn_Memo"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

@@ -108,11 +108,9 @@ public abstract class BaseTableAdapter extends RecyclerView.Adapter<BaseTableAda
         boolean result = false;
         if(position == 1 || position == 2 || position == 3 || position == 4 || position == 5 || position == 6) {
             result = true;
-
         }
         if(position % 7 == 0) {
             result = true;
-
         }
         return result;
     }

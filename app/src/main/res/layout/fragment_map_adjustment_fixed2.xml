@@ -5,37 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelineLeft"
-        android:layout_width="1dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelineRight"
-        android:layout_width="1dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
-
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelineTop"
-        android:layout_width="1dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelineBottom"
-        android:layout_width="1dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.90" />
-
     <TextView
         android:id="@+id/tv_Title"
         android:layout_width="0dp"
@@ -53,54 +22,41 @@
 
     <ImageButton
         android:id="@+id/btn_FI"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:1"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:background="@drawable/btn_fi"
-        app:layout_constraintHorizontal_bias="0.33"
-        android:layout_marginTop="6dp"
-        app:layout_constraintEnd_toStartOf="@id/guidelineRight"
-        app:layout_constraintTop_toBottomOf="@+id/guidelineTop"
-        app:layout_constraintBottom_toTopOf="@+id/btn_MappingValue"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLeft" />
-
+        app:layout_constraintHorizontal_bias="0.35"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Title"
+        />
     <ImageButton
         android:id="@+id/btn_IG"
-        android:layout_width="00dp"
-        android:layout_height="00dp"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-        android:background="@drawable/btn_ig"
-        app:layout_constraintTop_toTopOf="@+id/btn_FI"
-        app:layout_constraintStart_toEndOf="@id/btn_FI"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/btn_mapping_value"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintStart_toEndOf="@+id/btn_FI"
         app:layout_constraintBottom_toBottomOf="@+id/btn_FI"
-        android:layout_marginLeft="16dp"/>
-
+        />
     <ImageButton
         android:id="@+id/btn_MappingValue"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:1"
-        android:background="@drawable/btn_mapping_value"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/btn_ig"
+        app:layout_constraintStart_toStartOf="@+id/btn_FI"
         app:layout_constraintTop_toBottomOf="@+id/btn_FI"
-        app:layout_constraintStart_toStartOf="@id/btn_FI"
-        app:layout_constraintEnd_toEndOf="@+id/btn_FI"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
         android:layout_marginTop="16dp"
         />
-
     <ImageButton
         android:id="@+id/btn_Memo"
-        android:layout_width="00dp"
-        android:layout_height="00dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:background="@drawable/btn_memo"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="@id/btn_IG"
-        app:layout_constraintTop_toBottomOf="@+id/btn_IG"
-        app:layout_constraintEnd_toEndOf="@+id/btn_IG"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/btn_MappingValue"
+        app:layout_constraintBottom_toBottomOf="@id/btn_MappingValue"
+        android:layout_marginLeft="16dp"
         />
 
 

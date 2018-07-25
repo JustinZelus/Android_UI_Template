@@ -1,4 +1,4 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment.online;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments.online;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,9 +14,7 @@ import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
-import kawasaki.icm.com.tw.kawasaki_ui.fragment.DataMonitorFragment;
-import kawasaki.icm.com.tw.kawasaki_ui.fragment.FileSelectFragment;
-import kawasaki.icm.com.tw.kawasaki_ui.fragment.ResetECUFragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.FileSelectFragment;
 
 
 /**

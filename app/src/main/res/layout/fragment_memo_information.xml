@@ -2,17 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+
+    >
     <TextView
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Data Monitor"
-        android:textSize="20sp"
+        android:text="Memo Information"
+        android:textSize="16sp"
         android:layout_marginLeft="16dp"
         />
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_weight="1.05"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_marginLeft="16dp"
@@ -22,7 +25,7 @@
             android:layout_weight="0.6"
             android:id="@+id/frame_layout_1"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="match_parent"
             >
             <TextView
                 android:id="@+id/tv_view_1"
@@ -31,18 +34,18 @@
                 android:clickable="true"
                 android:gravity="center"
                 android:visibility="visible"
-                android:text="Item"
+                android:text="Memo Item"
                 android:layout_marginRight="0dp"
                 android:layout_marginBottom="0dp"
-                android:textSize="17sp"
+                android:textSize="14sp"
                 android:background="@drawable/rectangle"
-                android:textColor="#000000" />
+                 />
         </FrameLayout>
         <FrameLayout
-            android:layout_weight="0.9"
+            android:layout_weight="0.7"
             android:id="@+id/frame_layout_2"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="match_parent"
             >
             <TextView
                 android:id="@+id/tv_view_2"
@@ -54,15 +57,15 @@
                 android:text="Value"
                 android:layout_marginRight="0dp"
                 android:layout_marginBottom="0dp"
-                android:textSize="17sp"
+                android:textSize="14sp"
                 android:background="@drawable/rectangle"
-                android:textColor="#000000" />
+                 />
         </FrameLayout>
         <FrameLayout
             android:layout_weight="1"
             android:id="@+id/frame_layout_3"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="match_parent"
             >
             <TextView
                 android:id="@+id/tv_view_3"
@@ -74,22 +77,36 @@
                 android:text="Unit"
                 android:layout_marginRight="0dp"
                 android:layout_marginBottom="0dp"
-                android:textSize="17sp"
+                android:textSize="14sp"
                 android:background="@drawable/rectangle"
-                android:textColor="#000000" />
+                 />
         </FrameLayout>
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
+        android:layout_weight="0.33"
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="16dp"
-        android:background="#ffffff"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="0dp"
         android:layout_marginTop="4dp"
         android:scrollbarFadeDuration="0"
         android:scrollbars="vertical">
     </android.support.v7.widget.RecyclerView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_marginLeft="16dp"
+            android:id="@+id/btn_ecu_data"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Save as"
+            />
+    </LinearLayout>
 </LinearLayout>
 

@@ -1,6 +1,8 @@
 package kawasaki.icm.com.tw.kawasaki_ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -14,12 +16,15 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
-import kawasaki.icm.com.tw.kawasaki_ui.fragment.OpeningFragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.MapAdjustFragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.OpeningFragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.offline.MemoFragment_OFFLine;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -60,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
         String dp = "";
         switch(metrics.densityDpi){
             case DisplayMetrics.DENSITY_LOW:
@@ -97,10 +103,8 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        switchFragment(OpeningFragment.newInstance());
-//        switchFragment(new Map_Adjustment_Fragment());
-
-
+//        switchFragment(MapAdjustFragment.newInstance(Pages.OFF_LINE));
+        switchFragment(MemoFragment_OFFLine.newInstance());
 //        Log.i("*** Elenasys :: ", "StatusBar Height= " + getStatusBarHeight() + " , TitleBar Height = " + titleBarHeight);
     }
 
@@ -120,7 +124,21 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        Log.d("requestCone:" ,"" + requestCode);
+        Log.d("resultCode:",""+resultCode);;
+//        if (requestCode == ) {
+            // Make sure the request was successful
+//            if (resultCode == RESULT_OK) {
+                // The user picked a contact.
+                // The Intent's data Uri identifies which contact was selected.
 
+                // Do something with the contact here (bigger example below)
+//            }
+//        }
+    }
 
     public void switchFragment(Fragment destFragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();

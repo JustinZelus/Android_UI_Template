@@ -1,11 +1,11 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,15 +13,14 @@ import android.widget.ImageView;
 
 import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
-import kawasaki.icm.com.tw.kawasaki_ui.adapter.DataMonitorAdapter;
-import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.base.BaseFragment;
 
 /**
  * Created by icm_mobile on 2018/7/11.
  */
 
-public class OpeningFragment extends Fragment {
+public class OpeningFragment extends BaseFragment {
     Context context;
     Drawable pic;
     ImageView imageView;
@@ -35,6 +34,7 @@ public class OpeningFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("flow-childFragment:","onCreate"  );
         Instance = this;
         context = getContext();
         if(pic == null)
@@ -44,6 +44,7 @@ public class OpeningFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.d("flow-childFragment:","onCreateView"  );
         View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_opening,container,false);
         imageView = v.findViewById(R.id.img_background);
         if(pic != null)
@@ -56,11 +57,15 @@ public class OpeningFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        Log.d("flow-childFragment:","onResume"  );
+        setCurrentPage(Pages.ON_LINE);
+
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Log.d("flow-childFragment:","onDestroy"  );
     }
 
     /* 圖片響應 */

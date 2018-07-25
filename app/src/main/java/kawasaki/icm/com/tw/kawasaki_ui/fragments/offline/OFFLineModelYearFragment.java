@@ -1,4 +1,4 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments.offline;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -25,6 +25,7 @@ import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
 import kawasaki.icm.com.tw.kawasaki_ui.adapter.DirectoryAdapter;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.FileSelectFragment;
 import kawasaki.icm.com.tw.kawasaki_ui.listeners.IRecyclerViewClickListener;
 import kawasaki.icm.com.tw.kawasaki_ui.model.Directory;
 

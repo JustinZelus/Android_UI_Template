@@ -1,4 +1,4 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments.zdeprecated;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -23,6 +23,8 @@ import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
 import kawasaki.icm.com.tw.kawasaki_ui.adapter.Z_deprecatedMenuAdapter;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.SampleFragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.UserLibraryFragment;
 import kawasaki.icm.com.tw.kawasaki_ui.listeners.IRecyclerViewClickListener;
 import kawasaki.icm.com.tw.kawasaki_ui.model.Menu;
 

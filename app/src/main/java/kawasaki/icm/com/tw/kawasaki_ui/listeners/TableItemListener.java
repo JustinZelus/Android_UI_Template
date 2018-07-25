@@ -40,7 +40,7 @@ public abstract class TableItemListener implements View.OnClickListener {
         TextView tv = (TextView)v;
         if(adapter.lastTextView == null) {
             adapter.lastTextView = tv;
-            adapter.lastTextView.setBackground(MyPaint.getHighlightColor(context));
+                adapter.lastTextView.setBackground(MyPaint.getHighlightColor(context));
         }
         else{
             if(tv.equals(adapter.lastTextView)) return;

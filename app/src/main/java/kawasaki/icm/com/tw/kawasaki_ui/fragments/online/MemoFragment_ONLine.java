@@ -1,4 +1,4 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments.online;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -8,19 +8,24 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableRow;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
+import kawasaki.icm.com.tw.kawasaki_ui.adapter.MemoInformationAdapter;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
 import kawasaki.icm.com.tw.kawasaki_ui.listeners.IRecyclerViewClickListener;
 import kawasaki.icm.com.tw.kawasaki_ui.model.KawasakiList;
+import kawasaki.icm.com.tw.kawasaki_ui.model.MemoInformation;
 
 
 /**
@@ -32,71 +37,36 @@ public class MemoFragment_ONLine extends Fragment implements IRecyclerViewClickL
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
     Context context;
-    List<KawasakiList> mData = new ArrayList<>();
-
-
+    List<MemoInformation> mData = new ArrayList<>();
 
     @SuppressLint("ResourceType")
     public void initModel() {
-        Resources resources = context.getResources();
-        int[] titles = resources.getIntArray(R.array.table_offline_edit_data);
-//        for(int i = 0; i < 21; i++) {
-        mData.add(new KawasakiList("Memo Item"));
-        mData.add(new KawasakiList("Value"));
-        mData.add(new KawasakiList("Unit"));
-
-        mData.add(new KawasakiList("Condition"));
-        mData.add(new KawasakiList("Wet"));
-        mData.add(new KawasakiList(""));
-
-        mData.add(new KawasakiList("Weather"));
-        mData.add(new KawasakiList("Cloudy"));
-        mData.add(new KawasakiList(""));
-
-        mData.add(new KawasakiList("Temperature"));
-        mData.add(new KawasakiList("623"));
-        mData.add(new KawasakiList("degC"));
-
-        mData.add(new KawasakiList("Humidity"));
-        mData.add(new KawasakiList("200"));
-        mData.add(new KawasakiList("%"));
-
-        mData.add(new KawasakiList("Atmospheric Pressure"));
-        mData.add(new KawasakiList("130"));
-        mData.add(new KawasakiList("kPa"));
-
-        mData.add(new KawasakiList("Comment"));
-        mData.add(new KawasakiList("^___^"));
-        mData.add(new KawasakiList(""));
-//        }
+        mData.add(new MemoInformation("Condition","Wet",""));
+        mData.add(new MemoInformation("Weather","Cloudy",""));
+        mData.add(new MemoInformation("Temperature","623","degC"));
+        mData.add(new MemoInformation("Humidity","200","%"));
+        mData.add(new MemoInformation("Atmospheric Pressure","130","kPa"));
+        mData.add(new MemoInformation("Comment","write message here",""));
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
-
         initModel();
-
     }
 
     @TargetApi(Build.VERSION_CODES.O)
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_memo_online,container,false);
-//        mRecyclerView =  v.findViewById(R.id.my_recycler_view);
-//
-//        mRecyclerView.setHasFixedSize(true);
-//        mLayoutManager = new LinearLayoutManager(context);
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//        mAdapter = new ListAdapter(mData , (MainActivity)context ,this);
-//        mRecyclerView.setAdapter(mAdapter);
-
-        /**action bar 標題更新*/
-        if(AppAttribute.IS_UPDATE_TOOLBAR_TITLE)
-            MainActivity.Instance.setToolbarTitle(R.string.offline_edit_data);
-
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_memo_information,container,false);
+        mRecyclerView =  v.findViewById(R.id.my_recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false); //版面設置為縱向
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new MemoInformationAdapter(mData , context ,this);
+        mRecyclerView.setAdapter(mAdapter);
         return v;
     }
 
@@ -112,7 +82,6 @@ public class MemoFragment_ONLine extends Fragment implements IRecyclerViewClickL
 
     @Override
     public void recyclerViewItemClicked(View v, int position) {
-
-
+        Log.d("Memo", " position : " + position + " clicked");
     }
 }

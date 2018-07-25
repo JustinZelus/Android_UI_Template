@@ -228,4 +228,22 @@
         <item>@drawable/ripple_map_adjustment_2</item>
         <item>@drawable/ripple_map_adjustment_3</item>
     </integer-array>
+
+    <array name="memo_condition">
+        <item>Blank</item>
+        <item>Dry</item>
+        <item>Good</item>
+        <item>Wet</item>
+        <item>Muddy</item>
+        <item>Sand</item>
+        <item>Hard</item>
+    </array>
+
+    <array name="memo_weather">
+        <item>Blank</item>
+        <item>Sunny</item>
+        <item>Cloud</item>
+        <item>Rain</item>
+        <item>Snow</item>
+    </array>
 </resources>

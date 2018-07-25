@@ -1,5 +1,16 @@
 <resources>
+    <string name="memo_condition">Memo - Condition</string>
+    <string name="memo_weather">Memo - Weather</string>
+    <string name="memo_temperature">Memo - Temperature</string>
+    <string name="memo_humidity">Memo - Humidity</string>
+    <string name="memo_atmospheric">Memo - Atmospheric</string>
+
+    <string name="memo_message_temperature">Temperature (°C)</string>
+    <string name="memo_message_humidity">Humidity (%)</string>
+    <string name="memo_message_atmospheric">Atmospheric Pressure (kPa)</string>
+
     <string name="app_name">Kawasaki</string>
+
 
     <string name="offline_edit_data">EDIT DATA Advanced Ignition Setting</string>
     <string name="offline_ig_edit_data">IG EDIT DATA Advanced Ignition Setting</string>

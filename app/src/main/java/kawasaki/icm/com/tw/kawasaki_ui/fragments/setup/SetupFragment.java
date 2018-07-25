@@ -1,6 +1,7 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragments;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments.setup;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
 
 /**
@@ -33,6 +35,8 @@ public class SetupFragment extends Fragment {
         Instance = this;
         context = getContext();
     }
+
+
 
     @Nullable
     @Override
@@ -60,13 +64,12 @@ public class SetupFragment extends Fragment {
     View.OnClickListener btn_click_listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Toast.makeText(context,"no yet , dude ",Toast.LENGTH_SHORT).show();
-
+//            Toast.makeText(context,"no yet , dude ",Toast.LENGTH_SHORT).show();
             //TODO 尚未寫code
 //            Fragment des = null;
-//            if(v.equals(btnOFFLine)) {
-//                des = OFFLine_Fragment.newInstance(Pages.OFF_LINE);
-//            }
+            if(v.equals(btnDateTime)) {
+               MainActivity.Instance.startActivityForResult(new Intent(android.provider.Settings.ACTION_DATE_SETTINGS), 0);
+            }
 //            else if(v.equals(btnONLine)) {
 //                des = ONLine_Fragment.newInstance();
 //            }

@@ -1,9 +1,7 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -20,6 +18,14 @@ import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.offline.FIFragment_OFFLine;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.offline.IGFragment_OFFLine;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.offline.MappingValueFragment_OFFLine;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.offline.MemoFragment_OFFLine;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.online.FIFragment_ONLine;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.online.IGFragment_ONLine;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.online.MappingValueFragment_ONLine;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.online.MemoFragment_ONLine;
 import kawasaki.icm.com.tw.kawasaki_ui.model.Menu;
 
 /**
@@ -38,6 +44,12 @@ public class MapAdjustFragment extends Fragment{
     /* 按下按鈕有波紋效果(圖片需透明)*/
     boolean isAddRipple = false;
 
+
+    public static MapAdjustFragment newInstance(){
+        MapAdjustFragment f = new MapAdjustFragment();
+
+        return f;
+    }
     public static MapAdjustFragment newInstance(int page){
         MapAdjustFragment f = new MapAdjustFragment();
         Bundle bundle = new Bundle();
@@ -49,14 +61,7 @@ public class MapAdjustFragment extends Fragment{
     @SuppressLint("ResourceType")
     public void initModel() {
         toPage = getArguments().getInt("PAGE");
-        /** menu頁面預設3顆按鈕，按鈕的標題及顏色可在xml裡更改 */
-        Resources resources = context.getResources();
-        String[] titles = resources.getStringArray(R.array.map_adjustment);
-        TypedArray backgrounds = resources.obtainTypedArray(R.array.map_adjustment_Ripples);
 
-        for(int i = 0; i < titles.length; i++) {
-            mData.add(new Menu( titles[i] , backgrounds.getDrawable(i)));
-        }
     }
 
     @Override
@@ -64,13 +69,13 @@ public class MapAdjustFragment extends Fragment{
         super.onCreate(savedInstanceState);
         context = getContext();
         Instance = this;
-//        initModel();
+        initModel();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.origin_fragment_map_adjustment_fixed,container,false);
+        View v = inflater.inflate(R.layout.fragment_map_adjustment_fixed,container,false);
 
         btnFI = v.findViewById(R.id.btn_FI);
         btnIG = v.findViewById(R.id.btn_IG);

@@ -1,4 +1,4 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments.online;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -80,7 +80,7 @@ public class FIFragment_ONLine extends Fragment implements IRecyclerViewClickLis
 
 //        mAdapter = new TableAdapter(mData , getContext() ,this, pattern);
         mAdapter = new CellSettingAdapter(mData,context,this);
-        mAdapter.setFirstCellInvisible(context.getResources().getDrawable(R.drawable.test),true);
+        mAdapter.setFirstCellInvisible(context.getResources().getDrawable(R.drawable.bg_cell_0),true);
         mRecyclerView.setAdapter(mAdapter);
 
         btnUp   = v.findViewById(R.id.btn_Up);

@@ -1,4 +1,4 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment.online;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments.online;
 
 import android.content.Context;
 import android.os.Bundle;
