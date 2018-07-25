@@ -1,30 +1,22 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment;
+package kawasaki.icm.com.tw.kawasaki_ui.fragment.online;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
-import kawasaki.icm.com.tw.kawasaki_ui.adapter.Z_deprecatedMenuAdapter;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
-import kawasaki.icm.com.tw.kawasaki_ui.listeners.IRecyclerViewClickListener;
-import kawasaki.icm.com.tw.kawasaki_ui.model.Menu;
+import kawasaki.icm.com.tw.kawasaki_ui.fragment.DataMonitorFragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragment.FileSelectFragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragment.ResetECUFragment;
 
 
 /**

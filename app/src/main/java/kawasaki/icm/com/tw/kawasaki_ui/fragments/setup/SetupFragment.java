@@ -1,4 +1,4 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,9 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
-import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 
 /**
  * Created by icm_mobile on 2018/7/11.
@@ -62,7 +60,7 @@ public class SetupFragment extends Fragment {
     View.OnClickListener btn_click_listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Toast.makeText(context,"no yet , dude ",Toast.LENGTH_SHORT);
+            Toast.makeText(context,"no yet , dude ",Toast.LENGTH_SHORT).show();
 
             //TODO 尚未寫code
 //            Fragment des = null;

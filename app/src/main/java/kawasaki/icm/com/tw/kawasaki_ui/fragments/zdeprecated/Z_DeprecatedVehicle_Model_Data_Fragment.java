@@ -11,24 +11,19 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
+import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
-import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
+import kawasaki.icm.com.tw.kawasaki_ui.fragment.online.FunctionSelectFragment;
 
 /**
- * Created by icm_mobile on 2018/7/11.
+ * Created by icm_mobile on 2018/7/5.
  */
 
-public class VehicleInfoFragment extends Fragment {
+public class Z_DeprecatedVehicle_Model_Data_Fragment extends Fragment {
     Context context;
     LinearLayout linearLayout;
-    VehicleInfoFragment Instance;
-
-     static VehicleInfoFragment newInstance() {
-        VehicleInfoFragment f = new VehicleInfoFragment();
-        return f;
-    }
-
+    Z_DeprecatedVehicle_Model_Data_Fragment Instance;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

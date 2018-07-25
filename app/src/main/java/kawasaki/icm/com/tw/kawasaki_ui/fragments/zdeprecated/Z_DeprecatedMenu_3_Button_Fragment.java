@@ -24,6 +24,7 @@ import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
 import kawasaki.icm.com.tw.kawasaki_ui.adapter.Z_deprecatedMenuAdapter;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
+import kawasaki.icm.com.tw.kawasaki_ui.fragment.online.ONLineModelYearFragment;
 import kawasaki.icm.com.tw.kawasaki_ui.listeners.IRecyclerViewClickListener;
 import kawasaki.icm.com.tw.kawasaki_ui.model.Menu;
 

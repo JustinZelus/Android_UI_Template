@@ -42,7 +42,7 @@ public class ResetECUFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        Toast.makeText(context,"not yet,dude",Toast.LENGTH_SHORT);
+        Toast.makeText(context,"not yet,dude",Toast.LENGTH_SHORT).show();
     }
 
     @Override

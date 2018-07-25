@@ -1,4 +1,4 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragment;
+package kawasaki.icm.com.tw.kawasaki_ui.fragment.online;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
