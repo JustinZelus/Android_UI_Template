@@ -20,12 +20,9 @@ import kawasaki.icm.com.tw.kawasaki_ui.R;
 import kawasaki.icm.com.tw.kawasaki_ui.enums.AppAttribute;
 import kawasaki.icm.com.tw.kawasaki_ui.fragments.offline.FIFragment_OFFLine;
 import kawasaki.icm.com.tw.kawasaki_ui.fragments.offline.IGFragment_OFFLine;
-import kawasaki.icm.com.tw.kawasaki_ui.fragments.offline.MappingValueFragment_OFFLine;
-import kawasaki.icm.com.tw.kawasaki_ui.fragments.offline.MemoFragment_OFFLine;
 import kawasaki.icm.com.tw.kawasaki_ui.fragments.online.FIFragment_ONLine;
 import kawasaki.icm.com.tw.kawasaki_ui.fragments.online.IGFragment_ONLine;
 import kawasaki.icm.com.tw.kawasaki_ui.fragments.online.MappingValueFragment_ONLine;
-import kawasaki.icm.com.tw.kawasaki_ui.fragments.online.MemoFragment_ONLine;
 import kawasaki.icm.com.tw.kawasaki_ui.model.Menu;
 
 /**
@@ -134,7 +131,7 @@ public class MapAdjustFragment extends Fragment{
                     des = (toPage == Pages.OFF_LINE) ? new MappingValueFragment_OFFLine() : new MappingValueFragment_ONLine();
                     break;
                 case "f4":
-                    des = (toPage == Pages.OFF_LINE) ? new MemoFragment_OFFLine() : new MemoFragment_ONLine();
+                    des = (toPage == Pages.OFF_LINE) ? new MemoFragment() : new MemoFragment();
                     break;
                 default:
                     break;

@@ -1,4 +1,4 @@
-package kawasaki.icm.com.tw.kawasaki_ui.fragments.offline;
+package kawasaki.icm.com.tw.kawasaki_ui.fragments;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -16,11 +16,13 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +30,8 @@ import kawasaki.icm.com.tw.kawasaki_ui.MainActivity;
 import kawasaki.icm.com.tw.kawasaki_ui.R;
 import kawasaki.icm.com.tw.kawasaki_ui.adapter.MemoInformationAdapter;
 import kawasaki.icm.com.tw.kawasaki_ui.custom.Tools;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.dialogs.EditDialogFragment;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.dialogs.InformationDialogFragment;
 import kawasaki.icm.com.tw.kawasaki_ui.fragments.dialogs.ListDialogFragment;
 import kawasaki.icm.com.tw.kawasaki_ui.fragments.dialogs.SeekBarDialogFragment;
 import kawasaki.icm.com.tw.kawasaki_ui.interfaces.IDialogItemListener;
@@ -40,17 +44,17 @@ import kawasaki.icm.com.tw.kawasaki_ui.model.MemoInformation;
  * Created by icm_mobile on 2018/6/28.
  */
 
-public class MemoFragment_OFFLine extends Fragment implements IRecyclerViewClickListener,IDialogItemListener {
+public class MemoFragment extends Fragment implements IRecyclerViewClickListener,IDialogItemListener {
     RecyclerView mRecyclerView;
     MemoInformationAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
     Context context;
     List<MemoInformation> mData = new ArrayList<>();
+    TextView tvFocus;
+    Button btnSave;
 
-
-
-    public static MemoFragment_OFFLine newInstance() {
-        MemoFragment_OFFLine f = new MemoFragment_OFFLine();
+    public static MemoFragment newInstance() {
+        MemoFragment f = new MemoFragment();
         return f;
     }
 
@@ -61,7 +65,7 @@ public class MemoFragment_OFFLine extends Fragment implements IRecyclerViewClick
 //        for(int i = 0; i < 21; i++) {
         mData.add(new MemoInformation("Condition","Wet",""));
         mData.add(new MemoInformation("Weather","Cloudy",""));
-        mData.add(new MemoInformation("Temperature","623","degC"));
+        mData.add(new MemoInformation("Temperature","0","degC"));
         mData.add(new MemoInformation("Humidity","200","%"));
         mData.add(new MemoInformation("Atmospheric Pressure","130","kPa"));
         mData.add(new MemoInformation("Comment","write message here",""));
@@ -82,14 +86,19 @@ public class MemoFragment_OFFLine extends Fragment implements IRecyclerViewClick
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_memo_information,container,false);
-
+        btnSave = (Button)v.findViewById(R.id.btn_save);
         mRecyclerView =  v.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false); //版面設置為縱向
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new MemoInformationAdapter(mData , context ,this);
         mRecyclerView.setAdapter(mAdapter);
-
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showInfoAlertDialog(R.string.memo_information,"Richer Fuel Setting");
+            }
+        });
         return v;
     }
 
@@ -115,7 +124,7 @@ public class MemoFragment_OFFLine extends Fragment implements IRecyclerViewClick
         Log.d("Memo", " position : " + position + " clicked");
         List<String> data = new ArrayList<>();
         tvFocus = getChildTextView( v);
-
+        int currentValue = 0;
         switch (position) {
             case 0 :
                 data.add("Blank");
@@ -136,18 +145,19 @@ public class MemoFragment_OFFLine extends Fragment implements IRecyclerViewClick
                 showListAlertDialog(data,R.string.memo_weather);
                 break;
             case 2 :
-                int t = Integer.parseInt(tvFocus.getText().toString());
-                showSeekBarAlertDialog(-999,999,t,R.string.memo_temperature,context.getResources().getString(R.string.memo_message_temperature));
+                currentValue = Integer.parseInt(tvFocus.getText().toString());
+                showSeekBarAlertDialog(-999,999,currentValue,R.string.memo_temperature,context.getResources().getString(R.string.memo_message_temperature));
                 break;
             case 3 :
-                int h = Integer.parseInt(tvFocus.getText().toString());
-                showSeekBarAlertDialog(0,999,h,R.string.memo_humidity,context.getResources().getString(R.string.memo_message_humidity));
+                currentValue = Integer.parseInt(tvFocus.getText().toString());
+                showSeekBarAlertDialog(0,999,currentValue,R.string.memo_humidity,context.getResources().getString(R.string.memo_message_humidity));
                 break;
             case 4 :
-                int a = Integer.parseInt(tvFocus.getText().toString());
-                showSeekBarAlertDialog(0,999,a,R.string.memo_atmospheric,context.getResources().getString(R.string.memo_message_atmospheric));
+                currentValue = Integer.parseInt(tvFocus.getText().toString());
+                showSeekBarAlertDialog(0,999,currentValue,R.string.memo_atmospheric,context.getResources().getString(R.string.memo_message_atmospheric));
                 break;
             case 5 :
+                showEditAlertDialog(R.string.memo_comment,tvFocus.getText().toString());
                 break;
         }
     }
@@ -157,7 +167,7 @@ public class MemoFragment_OFFLine extends Fragment implements IRecyclerViewClick
         dialog.setIDialogItemListener(this);
         dialog.setData(data);
         dialog.setTitle(title);
-        dialog.show(MainActivity.Instance.getSupportFragmentManager(), "SeekbarDialogFragment");
+        dialog.show(MainActivity.Instance.getSupportFragmentManager(), "ListDialogFragment");
 
     }
 
@@ -169,8 +179,24 @@ public class MemoFragment_OFFLine extends Fragment implements IRecyclerViewClick
         dialog.setMax(max);
         dialog.setTitle(title);
         dialog.setMessage(msg);
-        dialog.show(MainActivity.Instance.getSupportFragmentManager(), "SeekbarDialogFragment");
+        dialog.show(MainActivity.Instance.getSupportFragmentManager(), "SeekBarDialogFragment");
 
+    }
+
+    private void showEditAlertDialog(int title,String content){
+        EditDialogFragment dialog = new EditDialogFragment();
+        dialog.setIDialogItemListener(this);
+        dialog.setTitle(title);
+        dialog.setData(content);
+        dialog.show(MainActivity.Instance.getSupportFragmentManager(), "EditDialogFragment");
+    }
+
+    private void showInfoAlertDialog(int title,String content){
+        InformationDialogFragment dialog = new InformationDialogFragment();
+        dialog.setIDialogItemListener(this);
+        dialog.setTitle(title);
+        dialog.setData(content);
+        dialog.show(MainActivity.Instance.getSupportFragmentManager(), "InformationDialogFragment");
     }
 
     private void showRadioButtonDialog(List<String> data){
@@ -198,7 +224,7 @@ public class MemoFragment_OFFLine extends Fragment implements IRecyclerViewClick
         dialog.show();
 
     }
-    TextView tvFocus;
+
     @Override
     public void setTextViewValue(String t) {
         if(tvFocus != null)

@@ -1,8 +1,8 @@
 package kawasaki.icm.com.tw.kawasaki_ui;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -16,15 +16,13 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import kawasaki.icm.com.tw.kawasaki_ui.enums.Pages;
-import kawasaki.icm.com.tw.kawasaki_ui.fragments.MapAdjustFragment;
-import kawasaki.icm.com.tw.kawasaki_ui.fragments.OpeningFragment;
-import kawasaki.icm.com.tw.kawasaki_ui.fragments.offline.MemoFragment_OFFLine;
+import kawasaki.icm.com.tw.kawasaki_ui.fragments.MemoFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -47,9 +45,19 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    public void setDefaultKeyboard(String language) {
+        Locale locale = new Locale(language);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.setLocale(locale);
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setDefaultKeyboard("en");//en為English
         setContentView(R.layout.main);
         Instance = this;
 
@@ -104,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 //        switchFragment(MapAdjustFragment.newInstance(Pages.OFF_LINE));
-        switchFragment(MemoFragment_OFFLine.newInstance());
+        switchFragment(MemoFragment.newInstance());
 //        Log.i("*** Elenasys :: ", "StatusBar Height= " + getStatusBarHeight() + " , TitleBar Height = " + titleBarHeight);
     }
 

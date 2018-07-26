@@ -90,16 +90,11 @@ public class SeekBarDialogFragment extends DialogFragment {
         tvMessage.setText(mMessage);
         tvVal.setText(String.valueOf(currentVal));
         seekBar.setMax(max);
-        if(currentVal >= 0)
-            seekBar.setProgress(min == 0 ? currentVal : max - currentVal );
-        else
-            seekBar.setProgress( max + currentVal);
+        seekBar.setProgress(convertToProgressVal(currentVal));
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                int value = min + (progress * step);
-                int value = max - (progress * step);
-//                currentVal = value;
+                int value = min + (progress * step);
                 tvVal.setText(String.valueOf(value));
                 Log.d("seekBarValue","" + value);
             }
@@ -123,7 +118,6 @@ public class SeekBarDialogFragment extends DialogFragment {
                     @Override
                     public void run() {
                         if(seekBar != null) {
-//                            int val = currentVal >= 0 ? max - currentVal : max + currentVal;
                             int val = Integer.parseInt(tvVal.getText().toString()) + 1;
                             seekBar.setProgress(convertToProgressVal(val));
                             tvVal.setText(String.valueOf(val));
@@ -139,8 +133,11 @@ public class SeekBarDialogFragment extends DialogFragment {
                 seekBarHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        if(seekBar != null)
-                            seekBar.setProgress(++currentVal);
+                        if(seekBar != null) {
+                            int val = Integer.parseInt(tvVal.getText().toString()) - 1;
+                            seekBar.setProgress(convertToProgressVal(val));
+                            tvVal.setText(String.valueOf(val));
+                        }
                     }
                 });
             }
@@ -152,7 +149,7 @@ public class SeekBarDialogFragment extends DialogFragment {
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         mItemListener.setTextViewValue(tvVal.getText().toString());
-                        //TODO: 將數值寫入硬體
+                        //TODO: 需將數值寫入硬體
                 }
                 })
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
@@ -165,6 +162,6 @@ public class SeekBarDialogFragment extends DialogFragment {
     }
 
     private int convertToProgressVal(int val) {
-        return val >=0 ? max - val : max + val;
+        return min == 0 ? val : max -  (max / 2 - val);
     }
 }

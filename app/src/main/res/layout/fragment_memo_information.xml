@@ -102,7 +102,7 @@
         >
         <Button
             android:layout_marginLeft="16dp"
-            android:id="@+id/btn_ecu_data"
+            android:id="@+id/btn_save"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Save as"

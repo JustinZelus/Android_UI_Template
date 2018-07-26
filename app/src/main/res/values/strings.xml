@@ -4,10 +4,13 @@
     <string name="memo_temperature">Memo - Temperature</string>
     <string name="memo_humidity">Memo - Humidity</string>
     <string name="memo_atmospheric">Memo - Atmospheric</string>
-
+    <string name="memo_comment">Memo - Comment</string>
+    <string name="memo_information">Memo - Information</string>
+    <string name="memo_information_ksd">KSD file name(.KSD)</string>
     <string name="memo_message_temperature">Temperature (°C)</string>
     <string name="memo_message_humidity">Humidity (%)</string>
     <string name="memo_message_atmospheric">Atmospheric Pressure (kPa)</string>
+
 
     <string name="app_name">Kawasaki</string>
 
