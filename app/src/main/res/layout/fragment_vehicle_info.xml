@@ -28,7 +28,8 @@
             />
         <TextView
             android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:text="KAWASAKI"
             android:textColor="#000000"
@@ -45,7 +46,8 @@
             android:gravity="center"
             />
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:text="KX450F"
             android:textColor="#000000"
@@ -63,7 +65,8 @@
             android:gravity="center"
             />
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:text="2013~2015"
             android:background="@drawable/rectangle_fill"
@@ -81,7 +84,8 @@
             android:gravity="center"
             />
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:text="010000"
             android:layout_weight="1"

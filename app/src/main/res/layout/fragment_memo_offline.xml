@@ -85,7 +85,7 @@
                    android:layout_weight="0.7"
                    android:gravity="center"
                    android:text="Wet"
-                   android:id="@+id/tv_1"
+                   android:id="@+id/tv_condition"
                    android:textSize="16sp"
                    android:layout_height="match_parent"
                    android:layout_width="match_parent"
@@ -116,7 +116,7 @@
                    android:layout_weight="0.7"
                    android:gravity="center"
                    android:text="Cloudy"
-                   android:id="@+id/tv_2"
+                   android:id="@+id/tv_weather"
                    android:textSize="16sp"
                    android:layout_height="match_parent"
                    android:layout_width="match_parent"
@@ -147,7 +147,7 @@
                    android:gravity="center"
                    android:text="623"
                    android:textSize="16sp"
-                   android:id="@+id/tv_3"
+                   android:id="@+id/tv_temperature"
                    android:layout_height="match_parent"
                    android:layout_width="match_parent"
                    android:textColor="#000000"/>
@@ -177,7 +177,7 @@
                    android:gravity="center"
                    android:text="200"
                    android:textSize="16sp"
-                   android:id="@+id/tv_4"
+                   android:id="@+id/tv_humidity"
                    android:layout_height="match_parent"
                    android:layout_width="match_parent"
                    android:textColor="#000000"/>
@@ -207,7 +207,7 @@
                    android:gravity="center"
                    android:text="130"
                    android:textSize="16sp"
-                   android:id="@+id/tv_5"
+                   android:id="@+id/tv_atmospheric"
                    android:layout_height="match_parent"
                    android:layout_width="match_parent"
                    android:textColor="#000000"/>
@@ -237,7 +237,7 @@
                    android:gravity="center"
                    android:text="^_____^"
                    android:textSize="16sp"
-                   android:id="@+id/tv_6"
+                   android:id="@+id/tv_comment"
                    android:layout_height="match_parent"
                    android:layout_width="match_parent"
                    android:textColor="#000000"/>
@@ -265,15 +265,16 @@
         android:orientation="horizontal"
         >
         <Button
+            android:id="@+id/btn_save"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Save"
             />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Save As"
-            />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:text="Save As"-->
+            <!--/>-->
     </LinearLayout>
 </LinearLayout>
 

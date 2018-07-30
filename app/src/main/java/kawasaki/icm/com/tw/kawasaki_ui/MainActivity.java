@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setDefaultKeyboard("en");//en為English
-        setContentView(R.layout.main);
+        setContentView(R.layout.fragment_vehicle_info);
         Instance = this;
 
         if(isAddToolbar ) {
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 //        switchFragment(MapAdjustFragment.newInstance(Pages.OFF_LINE));
-        switchFragment(MemoFragment.newInstance());
+//        switchFragment(MemoFragment.newInstance());
 //        Log.i("*** Elenasys :: ", "StatusBar Height= " + getStatusBarHeight() + " , TitleBar Height = " + titleBarHeight);
     }
 
