@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView
+        android:id="@+id/tv_Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="degC / degF"
+        android:textSize="22sp"
+        android:paddingStart="16dp"
+        android:paddingLeft="0dp"
+        android:gravity="left"
+        android:textStyle="bold"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageButton
+        android:id="@+id/btn_FI"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/btn_degc_1"
+        app:layout_constraintHorizontal_bias="0.35"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+
+        />
+    <ImageButton
+        android:id="@+id/btn_IG"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/btn_degf_0"
+        android:layout_marginLeft="48dp"
+        app:layout_constraintStart_toEndOf="@+id/btn_FI"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_FI"
+        />
+
+
+
+</android.support.constraint.ConstraintLayout>
